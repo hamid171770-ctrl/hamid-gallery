@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamid Gallery | Bikes</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 15px rgba(0,0,0,.25);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#c32032;
+}
+
+.header-right{
+    font-size:13px;
+    color:#ddd;
+}
+
+/* HERO */
+
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=85");
+    background-size:cover;
+    background-position:center;
+    padding:55px 20px;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:17px;
+}
+
+/* SEARCH */
+
+.search-area{
+    max-width:1100px;
+    margin:25px auto;
+    padding:0 20px;
+}
+
+.search{
+    width:100%;
+    padding:16px 18px;
+    border:1px solid #ddd;
+    border-radius:13px;
+    font-size:16px;
+    outline:none;
+    background:white;
+}
+
+.search:focus{
+    border-color:#b32032;
+    box-shadow:0 0 0 3px rgba(179,32,50,.1);
+}
+
+/* PRODUCTS */
+
+.products{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 35px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.25s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#b32032;
+    color:white;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:2;
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-body{
+    padding:18px;
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.specs{
+    color:#777;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+    color:#b32032;
+    margin-bottom:15px;
+}
+
+.buttons{
+    display:flex;
+    gap:9px;
+}
+
+.btn{
+    flex:1;
+    padding:12px 5px;
+    text-align:center;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.details{
+    border:1px solid #ddd;
+    color:#333;
+    background:white;
+}
+
+.order{
+    background:#b32032;
+    color:white;
+}
+
+/* PAGINATION */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:10px 20px 40px;
+}
+
+.page{
+    padding:11px 16px;
+    border-radius:9px;
+    text-decoration:none;
+    background:white;
+    color:#222;
+    border:1px solid #ddd;
+    font-weight:bold;
+}
+
+.page.active{
+    background:#b32032;
+    color:white;
+    border-color:#b32032;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:25px 15px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .header-right{
+        display:none;
+    }
+
+    .hero{
+        padding:40px 15px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+        height:220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+    <div class="logo">
+        হামিদ <span>গ্যালারি</span>
+    </div>
+
+    <div class="header-right">
+        📍 আগ্রাবাদ, চট্টগ্রাম
+    </div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+    <h1>Our Bikes</h1>
+
+    <p>
+        আপনার পছন্দের বাইকটি খুঁজে নিন
+    </p>
+
+</section>
+
+<div class="search-area">
+
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="🔍 বাইকের নাম দিয়ে Search করুন..."
+        onkeyup="searchBike()"
+    >
+
+</div>
+
+<div class="products" id="products">
+
+<!-- BIKE 1 -->
+
+<div class="card">
+
+<span class="badge">FEATURED</span>
+
+<img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Sport Rider 150</h2>
+
+<div class="specs">
+150cc • Petrol • 5 Speed<br>
+Mileage: 40 km/L
+</div>
+
+<div class="price">
+৳250,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Sport%20Rider%20150&price=250000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Sport%20Rider%20150&price=250000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 2 -->
+
+<div class="card">
+
+<span class="badge">NEW</span>
+
+<img src="https://images.unsplash.com/photo-1558980394-0c9e8e6e4b1d?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Street King 160</h2>
+
+<div class="specs">
+160cc • Petrol • 5 Speed<br>
+Mileage: 42 km/L
+</div>
+
+<div class="price">
+৳275,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Street%20King%20160&price=275000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Street%20King%20160&price=275000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 3 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558980664-10ea72e1b7e7?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Classic 200</h2>
+
+<div class="specs">
+200cc • Petrol • 5 Speed<br>
+Mileage: 35 km/L
+</div>
+
+<div class="price">
+৳320,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Classic%20200&price=320000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Classic%20200&price=320000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 4 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Adventure X 250</h2>
+
+<div class="specs">
+250cc • Petrol • 6 Speed<br>
+Mileage: 30 km/L
+</div>
+
+<div class="price">
+৳410,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Adventure%20X%20250&price=410000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Adventure%20X%20250&price=410000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 5 -->
+
+<div class="card">
+
+<span class="badge">POPULAR</span>
+
+<img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Dark Knight 180</h2>
+
+<div class="specs">
+180cc • Petrol • 5 Speed<br>
+Mileage: 38 km/L
+</div>
+
+<div class="price">
+৳300,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Dark%20Knight%20180&price=300000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Dark%20Knight%20180&price=300000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 6 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Road Master 150</h2>
+
+<div class="specs">
+150cc • Petrol • 5 Speed<br>
+Mileage: 43 km/L
+</div>
+
+<div class="price">
+৳230,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Road%20Master%20150&price=230000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Road%20Master%20150&price=230000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 7 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558980664-10ea72e1b7e7?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Red Thunder 160</h2>
+
+<div class="specs">
+160cc • Petrol • 5 Speed<br>
+Mileage: 40 km/L
+</div>
+
+<div class="price">
+৳260,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Red%20Thunder%20160&price=260000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Red%20Thunder%20160&price=260000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 8 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558981033-0f0309284409?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Cruiser 220</h2>
+
+<div class="specs">
+220cc • Petrol • 5 Speed<br>
+Mileage: 32 km/L
+</div>
+
+<div class="price">
+৳360,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Cruiser%20220&price=360000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Cruiser%20220&price=360000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 9 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Racing R 200</h2>
+
+<div class="specs">
+200cc • Petrol • 6 Speed<br>
+Mileage: 34 km/L
+</div>
+
+<div class="price">
+৳350,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Racing%20R%20200&price=350000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Racing%20R%20200&price=350000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BIKE 10 -->
+
+<div class="card">
+
+<span class="badge">PREMIUM</span>
+
+<img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h2>Premium X 300</h2>
+
+<div class="specs">
+300cc • Petrol • 6 Speed<br>
+Mileage: 28 km/L
+</div>
+
+<div class="price">
+৳500,000
+</div>
+
+<div class="buttons">
+
+<a class="btn details"
+href="details.html?bike=Premium%20X%20300&price=500000">
+View Details
+</a>
+
+<a class="btn order"
+href="details.html?bike=Premium%20X%20300&price=500000">
+Order Now
+</a>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- PAGINATION -->
+
+<div class="pagination">
+
+<a class="page active" href="bikes.html">
+1
+</a>
+
+<a class="page" href="bikes2.html">
+2 →
+</a>
+
+</div>
+
+
+<footer>
+
+<strong>হামিদ গ্যালারি</strong><br>
+Premium Bike Showroom<br>
+📍 আগ্রাবাদ, চট্টগ্রাম<br>
+📞 ০০০০৬৬৬৬৬৯৯৯
+
+</footer>
+
+
+<script>
+
+function searchBike(){
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+
+        const name =
+            card
+            .querySelector("h2")
+            .innerText
+            .toLowerCase();
+
+        if(name.includes(search)){
+            card.style.display="";
+        }else{
+            card.style.display="none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

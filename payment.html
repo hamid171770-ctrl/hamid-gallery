@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamid Gallery | Payment</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 20px;
+}
+
+.header{
+    max-width:850px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#c32032;
+}
+
+.location{
+    color:#ddd;
+    font-size:13px;
+}
+
+.container{
+    max-width:700px;
+    margin:35px auto;
+    padding:0 20px;
+}
+
+.box{
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.09);
+}
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.title p{
+    color:#777;
+}
+
+.summary{
+    background:#f8f8f8;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px solid #eee;
+}
+
+.row:last-child{
+    border-bottom:0;
+}
+
+.advance{
+    background:#fff4f5;
+    border:1px solid #efc4ca;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:22px;
+    text-align:center;
+}
+
+.advance-title{
+    color:#666;
+    margin-bottom:8px;
+}
+
+.advance-amount{
+    color:#b32032;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.methods-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.method{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+.method:hover{
+    border-color:#b32032;
+}
+
+.method input{
+    margin-right:10px;
+}
+
+.confirm{
+    width:100%;
+    padding:16px;
+    border:0;
+    border-radius:12px;
+    background:#b32032;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.demo{
+    text-align:center;
+    color:#888;
+    font-size:12px;
+    margin-top:16px;
+    line-height:1.6;
+}
+
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+@media(max-width:600px){
+
+    .location{
+        display:none;
+    }
+
+    .box{
+        padding:23px 18px;
+    }
+
+    .title h1{
+        font-size:25px;
+    }
+
+    .advance-amount{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+    <div class="logo">
+        হামিদ <span>গ্যালারি</span>
+    </div>
+
+    <div class="location">
+        📍 আগ্রাবাদ, চট্টগ্রাম
+    </div>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+<div class="box">
+
+    <div class="title">
+        <h1>Advance Payment</h1>
+        <p>Order Confirm করার আগে Payment তথ্য দেখুন</p>
+    </div>
+
+
+    <div class="summary">
+
+        <div class="row">
+            <span>Bike</span>
+            <strong id="bike">Sport Rider 150</strong>
+        </div>
+
+        <div class="row">
+            <span>Customer</span>
+            <strong id="name">Customer</strong>
+        </div>
+
+        <div class="row">
+            <span>Mobile</span>
+            <strong id="phone">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Total Price</span>
+            <strong>৳<span id="price">250,000</span></strong>
+        </div>
+
+    </div>
+
+
+    <div class="advance">
+
+        <div class="advance-title">
+            Booking Advance — 15%
+        </div>
+
+        <div class="advance-amount">
+            ৳<span id="advance">37,500</span>
+        </div>
+
+    </div>
+
+
+    <div class="methods-title">
+        Payment Method
+    </div>
+
+
+    <label class="method">
+
+        <input
+            type="radio"
+            name="method"
+            value="bKash"
+            checked
+        >
+
+        📱 bKash
+
+    </label>
+
+
+    <label class="method">
+
+        <input
+            type="radio"
+            name="method"
+            value="Nagad"
+        >
+
+        📱 Nagad
+
+    </label>
+
+
+    <label class="method">
+
+        <input
+            type="radio"
+            name="method"
+            value="Card"
+        >
+
+        💳 Card Payment
+
+    </label>
+
+
+    <button
+        class="confirm"
+        onclick="confirmOrder()">
+
+        Confirm Order
+
+    </button>
+
+
+    <div class="demo">
+
+        ⚠️ Demo Payment System<br>
+        এই পেজে বর্তমানে কোনো আসল টাকা নেওয়া হচ্ছে না।
+
+    </div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<strong>হামিদ গ্যালারি</strong><br>
+Premium Bike Showroom<br>
+📍 আগ্রাবাদ, চট্টগ্রাম<br>
+📞 ০০০০৬৬৬৬৬৯৯৯
+
+</footer>
+
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const bike =
+params.get("bike") || "Sport Rider 150";
+
+const price =
+Number(params.get("price")) || 250000;
+
+const name =
+params.get("name") || "Customer";
+
+const phone =
+params.get

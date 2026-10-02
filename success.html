@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed | হামিদ গ্যালারি</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071525;
+    min-height:100vh;
+    color:white;
+    padding:25px 15px;
+}
+
+.box{
+    width:100%;
+    max-width:600px;
+    margin:20px auto;
+    background:#10243a;
+    border-radius:22px;
+    padding:25px 18px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.check{
+    width:80px;
+    height:80px;
+    margin:0 auto 18px;
+    background:#16a34a;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    font-weight:bold;
+}
+
+h1{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.sub{
+    color:#aebdcd;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.order{
+    background:#0b1929;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:18px;
+}
+
+.order small{
+    color:#8292a5;
+    display:block;
+    margin-bottom:5px;
+}
+
+.order strong{
+    font-size:20px;
+}
+
+.info{
+    background:white;
+    color:#111827;
+    border-radius:16px;
+    padding:18px;
+    text-align:left;
+}
+
+.info h2{
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid #e5e7eb;
+    font-size:14px;
+}
+
+.row:last-child{
+    border-bottom:0;
+}
+
+.label{
+    color:#6b7280;
+}
+
+.value{
+    font-weight:bold;
+    text-align:right;
+}
+
+.green{
+    color:#16a34a;
+}
+
+.note{
+    margin-top:15px;
+    background:#fff7ed;
+    color:#9a3412;
+    padding:12px;
+    border-radius:10px;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    flex:1;
+    border:0;
+    padding:14px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.home{
+    background:#16a34a;
+    color:white;
+}
+
+.print{
+    background:white;
+    color:#111827;
+}
+
+.footer{
+    margin-top:18px;
+    color:#7f90a3;
+    font-size:12px;
+    line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="check">✓</div>
+
+    <h1>অর্ডার সফল হয়েছে!</h1>
+
+    <p class="sub">
+        আপনার অর্ডারের তথ্য সফলভাবে গ্রহণ করা হয়েছে।
+    </p>
+
+    <div class="order">
+        <small>ORDER NUMBER</small>
+        <strong id="orderNumber">HG-000000</strong>
+    </div>
+
+    <div class="info">
+
+        <h2>অর্ডারের বিবরণ</h2>
+
+        <div class="row">
+            <span class="label">বাইক</span>
+            <span class="value" id="bike">---</span>
+        </div>
+
+        <div class="row">
+            <span class="label">গ্রাহকের নাম</span>
+            <span class="value" id="name">---</span>
+        </div>
+
+        <div class="row">
+            <span class="label">মোবাইল</span>
+            <span class="value" id="phone">---</span>
+        </div>
+
+        <div class="row">
+            <span class="label">মোট মূল্য</span>
+            <span class="value" id="price">৳0</span>
+        </div>
+
+        <div class="row">
+            <span class="label">অগ্রিম ১৫%</span>
+            <span class="value green" id="advance">৳0</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Payment</span>
+            <span class="value" id="method">---</span>
+        </div>
+
+        <div class="note">
+            ⚠️ এটি বর্তমানে Demo Payment System।
+            কোনো আসল টাকা এই ওয়েবসাইটের মাধ্যমে নেওয়া হয়নি।
+        </div>
+
+    </div>
+
+    <div class="buttons">
+
+        <button class="home" onclick="goHome()">
+            🏍️ আরও বাইক দেখুন
+        </button>
+
+        <button class="print" onclick="window.print()">
+            🖨️ Print
+        </button>
+
+    </div>
+
+    <div class="footer">
+        হামিদ গ্যালারি<br>
+        আগ্রাবাদ, চট্টগ্রাম<br>
+        📞 ০০০০৬৬৬৬৬৯৯৯
+    </div>
+
+</div>
+
+
+<script>
+
+const p = new URLSearchParams(window.location.search);
+
+const bike = p.get("bike") || "Unknown Bike";
+const name = p.get("name") || "Customer";
+const phone = p.get("phone") || "Not Provided";
+const price = Number(p.get("price")) || 0;
+const advance = Number(p.get("advance")) || price * 0.15;
+const method = p.get("method") || "Demo Payment";
+
+document.getElementById("bike").innerText = bike;
+
+document.getElementById("name").innerText = name;
+
+document.getElementById("phone").innerText = phone;
+
+document.getElementById("price").innerText =
+    "৳" + price.toLocaleString("en-BD");
+
+document.getElementById("advance").innerText =
+    "৳" + advance.toLocaleString("en-BD");
+
+document.getElementById("method").innerText = method;
+
+document.getElementById("orderNumber").innerText =
+    "HG-" + Date.now().toString().slice(-6);
+
+function goHome(){
+    window.location.href = "bikes.html";
+}
+
+</script>
+
+</body>
+</html>

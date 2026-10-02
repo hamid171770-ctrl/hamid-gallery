@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamid Gallery | Bike Showroom</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    background:
+    linear-gradient(135deg,rgba(0,0,0,.88),rgba(35,35,35,.75)),
+    url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=85");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:460px;
+    background:rgba(255,255,255,.96);
+    border-radius:28px;
+    padding:35px 28px;
+    box-shadow:0 25px 70px rgba(0,0,0,.55);
+    animation:show .7s ease;
+}
+
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.logo .bangla{
+    font-size:42px;
+    font-weight:900;
+    color:#111;
+}
+
+.logo .red{
+    color:#a51f2d;
+}
+
+.tagline{
+    text-align:center;
+    color:#777;
+    font-size:16px;
+    margin-bottom:28px;
+}
+
+.title{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    color:#222;
+    margin-bottom:22px;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:16px;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px 17px;
+    border:1px solid #ddd;
+    border-radius:13px;
+    font-size:16px;
+    outline:none;
+    background:#fafafa;
+    transition:.25s;
+}
+
+.input-box input:focus{
+    border-color:#a51f2d;
+    background:white;
+    box-shadow:0 0 0 3px rgba(165,31,45,.10);
+}
+
+.password-box input{
+    padding-right:55px;
+}
+
+.eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:20px;
+    color:#777;
+}
+
+.login-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:13px;
+    background:#a51f2d;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+    margin-top:5px;
+}
+
+.login-btn:hover{
+    background:#861824;
+    transform:translateY(-1px);
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:22px 0;
+    color:#999;
+    font-size:14px;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#ddd;
+}
+
+.google-btn{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:13px;
+    background:white;
+    color:#222;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.google-icon{
+    margin-right:9px;
+    font-size:19px;
+}
+
+.register{
+    text-align:center;
+    margin-top:23px;
+    color:#666;
+    font-size:15px;
+}
+
+.register a{
+    color:#a51f2d;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.info{
+    text-align:center;
+    margin-top:24px;
+    padding-top:18px;
+    border-top:1px solid #eee;
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.footer{
+    text-align:center;
+    margin-top:10px;
+    color:#aaa;
+    font-size:11px;
+}
+
+@media(max-width:480px){
+
+    .login-box{
+        padding:30px 20px;
+        border-radius:23px;
+    }
+
+    .logo .bangla{
+        font-size:36px;
+    }
+
+    .title{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        <div class="bangla">
+            হামিদ <span class="red">গ্যালারি</span>
+        </div>
+    </div>
+
+    <div class="tagline">
+        Premium Bike Showroom
+    </div>
+
+    <div class="title">
+        Welcome Back
+    </div>
+
+    <form id="loginForm">
+
+        <div class="input-box">
+            <input
+                type="email"
+                id="email"
+                placeholder="Gmail / Email"
+                required
+            >
+        </div>
+
+        <div class="input-box password-box">
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+
+            <span class="eye" onclick="togglePassword()">
+                👁️
+            </span>
+        </div>
+
+        <button class="login-btn" type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <div class="divider">
+        অথবা
+    </div>
+
+    <button class="google-btn" onclick="googleLogin()">
+        <span class="google-icon">🔵</span>
+        Continue with Google
+    </button>
+
+    <div class="register">
+        Account নেই?
+        <a href="register.html">
+            Create Account
+        </a>
+    </div>
+
+    <div class="info">
+        📍 আগ্রাবাদ, চট্টগ্রাম<br>
+        📞 ০০০০৬৬৬৬৬৯৯৯
+    </div>
+
+    <div class="footer">
+        © 2026 Hamid Gallery • Bike Showroom
+    </div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+    const password =
+        document.getElementById("password");
+
+    if(password.type === "password"){
+        password.type = "text";
+    }else{
+        password.type = "password";
+    }
+}
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    if(password.length < 6){
+
+        alert("Password কমপক্ষে ৬ অক্ষরের হতে হবে!");
+
+        return;
+    }
+
+    alert("Login successful!");
+
+    window.location.href = "bikes.html";
+
+});
+
+function googleLogin(){
+
+    alert("Google Login পরের ধাপে যুক্ত করা হবে।");
+
+}
+
+</script>
+
+</body>
+</html>

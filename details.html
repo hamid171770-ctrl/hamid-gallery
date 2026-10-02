@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamid Gallery | Bike Details</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:15px 20px;
+}
+
+.header{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#c32032;
+}
+
+.location{
+    font-size:13px;
+    color:#ddd;
+}
+
+.container{
+    max-width:1050px;
+    margin:35px auto;
+    padding:0 20px;
+}
+
+.product{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.image-area{
+    background:#eee;
+    min-height:430px;
+}
+
+.image-area img{
+    width:100%;
+    height:100%;
+    min-height:430px;
+    object-fit:cover;
+}
+
+.info{
+    padding:35px;
+}
+
+.badge{
+    display:inline-block;
+    background:#b32032;
+    color:white;
+    padding:7px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+h1{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:30px;
+    color:#b32032;
+    font-weight:bold;
+    margin-bottom:22px;
+}
+
+.spec-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.specs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.spec{
+    background:#f7f7f7;
+    padding:12px;
+    border-radius:9px;
+    font-size:14px;
+}
+
+.advance{
+    background:#fff4f5;
+    border:1px solid #f0c8cd;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+.advance strong{
+    color:#b32032;
+}
+
+.order-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#b32032;
+    color:white;
+    text-decoration:none;
+    padding:16px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.order-btn:hover{
+    background:#8e1827;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    color:#555;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.note{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin-top:20px;
+}
+
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+@media(max-width:700px){
+
+    .location{
+        display:none;
+    }
+
+    .product{
+        grid-template-columns:1fr;
+    }
+
+    .image-area,
+    .image-area img{
+        min-height:280px;
+        height:280px;
+    }
+
+    .info{
+        padding:25px 20px;
+    }
+
+    h1{
+        font-size:27px;
+    }
+
+    .price{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+    <div class="logo">
+        হামিদ <span>গ্যালারি</span>
+    </div>
+
+    <div class="location">
+        📍 আগ্রাবাদ, চট্টগ্রাম
+    </div>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+<div class="product">
+
+    <div class="image-area">
+        <img
+        id="bikeImage"
+        src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=85"
+        alt="Bike">
+    </div>
+
+
+    <div class="info">
+
+        <span class="badge">
+            AVAILABLE
+        </span>
+
+        <h1 id="bikeName">
+            Sport Rider 150
+        </h1>
+
+        <div class="price">
+            ৳<span id="bikePrice">250000</span>
+        </div>
+
+
+        <div class="spec-title">
+            Bike Specifications
+        </div>
+
+
+        <div class="specs">
+
+            <div class="spec">
+                🏍️ Engine<br>
+                <strong>150cc</strong>
+            </div>
+
+            <div class="spec">
+                ⚙️ Transmission<br>
+                <strong>5 Speed</strong>
+            </div>
+
+            <div class="spec">
+                ⛽ Fuel<br>
+                <strong>Petrol</strong>
+            </div>
+
+            <div class="spec">
+                🛣️ Mileage<br>
+                <strong>40 km/L</strong>
+            </div>
+
+        </div>
+
+
+        <div class="advance">
+
+            আজকের Booking Advance:
+            <strong>
+                ৳<span id="advance">37,500</span>
+            </strong>
+
+            <br><br>
+
+            <small>
+                মোট মূল্যের 15% Advance
+            </small>
+
+        </div>
+
+
+        <a
+        id="orderButton"
+        class="order-btn"
+        href="#">
+            🛒 এখনই Order করুন
+        </a>
+
+
+        <a
+        class="back"
+        href="bikes.html">
+            ← Back to Bikes
+        </a>
+
+
+        <div class="note">
+            📞 Order সহায়তা: ০০০০৬৬৬৬৬৯৯৯
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<strong>হামিদ গ্যালারি</strong><br>
+Premium Bike Showroom<br>
+📍 আগ্রাবাদ, চট্টগ্রাম<br>
+© 2026 Hamid Gallery
+
+</footer>
+
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const bike =
+params.get("bike") || "Sport Rider 150";
+
+const price =
+Number(params.get("price")) || 250000;
+
+const advance =
+price * 0.15;
+
+
+document.getElementById("bikeName")
+.innerText = bike;
+
+document.getElementById("bikePrice")
+.innerText =
+price.toLocaleString("en-BD");
+
+document.getElementById("advance")
+.innerText =
+advance.toLocaleString("en-BD");
+
+
+document.getElementById("orderButton").href =
+"order.html?bike="
++ encodeURIComponent(bike)
++ "&price="
++ price;
+
+</script>
+
+</body>
+</html>
